@@ -18,21 +18,70 @@ if (annyang) {
             location.href = "dogs_page.html"
     }
     }   
+    annyang.addCommands(commands);
 }
 
 function startAudio() {
-    if (annyiang) {
+    if (annyang) {
         annyang.start();
     }
 }
 
 function stopAudio() {
-    if (annyiang) {
-        annyiang.abort();
+    if (annyang) {
+        annyang.abort();
     }
 }
 
-function getStocks() {
-    const api_url = "https://api.polygon.io/v2/aggs/ticker/AAPL/range/1/day/2023-01-09/2023-02-10?adjusted=true&sort=asc&limit=120&apiKey=Afi78pFpy0CXVWFsGbCOXuJlefUrxeHW";
+function getStocks(stocksTicker) {
+    console.log("test");
+    const input = document.getElementById("stocks-input");
+    const days = parseInt(document.getElementById("days").value);
+    const startDate = new Date();
+    const endDate = new Date();
+    const ticker = stocksTicker || input.value.toUpperCase();
+
+    startDate.setDate(endDate.getDate() - days);
     
+    const formatStartDate = startDate.toISOString().split("T")[0];
+    const formatEndDate = endDate.toISOString().split("T")[0];
+
+    const api_url = `https://api.polygon.io/v2/aggs/ticker/${ticker}/range/${days}/day/${formatStartDate}/${formatEndDate}?adjusted=true&sort=asc&limit=120&apiKey=Afi78pFpy0CXVWFsGbCOXuJlefUrxeHW`;
+
+    fetch(api_url)
+        .then(res => res.json())
+        .then(resJson => {
+            const labels = resJson.results.map(result =>
+                new Date(result.t).toLocaleDateString()
+            );
+
+            const prices = resJson.results.map(result =>
+                result.c
+            );
+
+            drawStockChart(labels, prices);
+        })
+}
+
+function drawStockChart(labels, prices) {
+    const ctx = document.getElementById("stocks-chart");
+
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "$ Stocks Price",
+                data: prices,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: false
+                }
+            }
+        }
+    })
 }
