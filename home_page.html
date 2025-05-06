@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Home Page</title>
+
+        <link rel = "stylesheet" href = "style.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+        <script defer src = "Script.js"></script>
+    </head>
+
+    <body>
+        <header id = "head-bar">
+            <h1>INST377 - Activities</h1>
+        </header>
+
+        <nav id = "nav-bar">
+            <ul>
+                <li><a href = "home_page.html">Home</a></li>
+                <li><a href = "stocks_page.html">Stocks</a></li>
+                <li><a href = "dogs_page.html">Dogs</a></li>
+            </ul>
+        </nav>
+
+        <h2>These are some different activities we can try!</h2>
+
+        <div id = "button-box">
+            <button class = "button-53" onclick = "location.href = 'stocks_page.html'">Stocks</button>
+            <button class = "button-53" onclick = "location.href = 'dogs_page.html'">Dogs</button>
+        </div>
+
+        <div id = "quote-box">
+            <h3><strong>Quote of the Page Load</strong></h3>
+            <p id = "quote-text"></p>
+        </div>
+
+        <div id = "audio-box">
+            <h2>In this web page there are options to Navigate using Audio!</h2>
+            <p>Ensure your Mic is enabled to be ble to use this feature</p>
+            <ul>
+                <li>Navigate to a Different Page 
+                    <ul>
+                        <li>Say: <strong>Navigate to &lt;page&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Change the Page Color
+                    <ul>
+                        <li>Say: <strong>Change the color to &lt;color&gt;</strong></li>
+                    </ul>
+                </li>
+                <li>Say Hello Back to you! 
+                    <ul>
+                        <li>Say: <strong>Hello</strong></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class = "audio-buttons">
+                <button onclick = "startAudio()"><strong>Turn on Listening</strong></button>
+                <button onclick = "stopAudio()"><strong>Turn off Listening</strong></button>
+            </div>
+        </div>
+    </body>
+</html>
