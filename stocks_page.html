@@ -4,8 +4,9 @@
 
         <link rel = "stylesheet" href = "style.css">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
-        <script defer src = "Script.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+        <script defer src = "script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
     <body>
@@ -38,6 +39,19 @@
         <div id = "stocks-graph">
             <canvas id = "stocks-chart"></canvas>
         </div>
+
+        <table id = "reddit-table">
+            <thead>
+                <tr>
+                    <th>TICKER</th>
+                    <th>COMMENT COUNT</th>
+                    <th>SENTIMENT</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
 
         <div id = "audio-box">
             <h2>In this web page there are options to Navigate using Audio!</h2>

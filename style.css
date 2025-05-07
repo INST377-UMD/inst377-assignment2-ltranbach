@@ -118,3 +118,17 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+#reddit-table {
+    background-color: white;
+}
+
+#reddit-table th,
+#reddit-table td {
+    border: 2px solid black;
+}
+
+#dog-breed-info {
+    border: 2px solid black;
+    background: white;
+}
